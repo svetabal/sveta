@@ -1,1 +1,2 @@
 Hello, this is file 1
+This line was added by person2
