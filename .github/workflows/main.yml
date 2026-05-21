@@ -21,18 +21,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
       
-      # Шаг 2: Запускаем тесты - проверяем что все файлы существуют
-      - name: Run tests
-        run: |
-          echo "Running tests..."
-          echo "Test 1 - file1.txt exists"
-          test -f file1.txt && echo "PASSED" || echo "FAILED"
-          echo "Test 2 - file2.txt exists"
-          test -f file2.txt && echo "PASSED" || echo "FAILED"
-          echo "Test 3 - file3.txt exists"
-          test -f file3.txt && echo "PASSED" || echo "FAILED"
-          echo "All tests completed!"
+      # Шаг 2: Устанавливаем Python
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
       
-      # Шаг 3: Сообщаем об успешном завершении сборки
-      - name: Build complete
-        run: echo "Build successful!"
+      # Шаг 3: Проверяем что файлы проекта существуют
+      - name: Check project files
+        run: |
+          echo "Checking project files..."
+          test -f file1.txt && echo "file1.txt - PASSED" || echo "file1.txt - FAILED"
+          test -f file2.txt && echo "file2.txt - PASSED" || echo "file2.txt - FAILED"
+          test -f f
