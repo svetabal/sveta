@@ -33,6 +33,12 @@ jobs:
           test -f file3.txt && echo "PASSED" || echo "FAILED"
           echo "All tests completed!"
       
-      # Шаг 3: Сообщаем об успешном завершении сборки
-      - name: Build complete
-        run: echo "Build successful!"
+     # Шаг 3: Проверяем что файлы проекта существуют
+      - name: Check project files
+        run: |
+          echo "Checking project files..."
+          test -f file1.txt && echo "file1.txt - PASSED" || echo "file1.txt - not found"
+          test -f file2.txt && echo "file2.txt - PASSED" || echo "file2.txt - not found"
+          test -f file3.txt && echo "file3.txt - PASSED" || echo "file3.txt - not found"
+          test -f game.py && echo "game.py - PASSED" || echo "game.py - not found"
+          echo "File check completed!"
