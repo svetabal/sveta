@@ -27,7 +27,7 @@ jobs:
         with:
           python-version: '3.10'
       
-     # Шаг 3: Проверяем что файлы проекта существуют
+      # Шаг 3: Проверяем что файлы проекта существуют
       - name: Check project files
         run: |
           echo "Checking project files..."
@@ -36,3 +36,27 @@ jobs:
           test -f file3.txt && echo "file3.txt - PASSED" || echo "file3.txt - not found"
           test -f game.py && echo "game.py - PASSED" || echo "game.py - not found"
           echo "File check completed!"
+      
+      # Шаг 4: Запускаем Python тесты игры
+      - name: Run Python tests
+        run: |
+          echo "Running Python tests..."
+          python test_game.py
+      
+      # Шаг 5: Генерируем документацию автоматически
+      - name: Generate documentation
+        run: |
+          echo "Generating documentation..."
+          python docs.py
+          echo "Documentation generated successfully!"
+      
+      # Шаг 6: Сохраняем документацию как артефакт для скачивания
+      - name: Upload documentation
+        uses: actions/upload-artifact@v3
+        with:
+          name: project-documentation
+          path: documentation.md
+      
+      # Шаг 7: Сообщаем об успешном завершении
+      - name: Build complete
+        run: echo "All tests passed! Documentation generated! Build successful!"
