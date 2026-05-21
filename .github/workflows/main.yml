@@ -27,10 +27,12 @@ jobs:
         with:
           python-version: '3.10'
       
-      # Шаг 3: Проверяем что файлы проекта существуют
+     # Шаг 3: Проверяем что файлы проекта существуют
       - name: Check project files
         run: |
           echo "Checking project files..."
-          test -f file1.txt && echo "file1.txt - PASSED" || echo "file1.txt - FAILED"
-          test -f file2.txt && echo "file2.txt - PASSED" || echo "file2.txt - FAILED"
-          test -f f
+          test -f file1.txt && echo "file1.txt - PASSED" || echo "file1.txt - not found"
+          test -f file2.txt && echo "file2.txt - PASSED" || echo "file2.txt - not found"
+          test -f file3.txt && echo "file3.txt - PASSED" || echo "file3.txt - not found"
+          test -f game.py && echo "game.py - PASSED" || echo "game.py - not found"
+          echo "File check completed!"
