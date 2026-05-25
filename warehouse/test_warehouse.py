@@ -64,3 +64,11 @@ def test_history():
     w.ship_items("apple", 3)
     history = w.get_history()
     assert len(history) == 3
+
+def test_get_all_items():
+    w = Warehouse()
+    w.add_item("apple", 10)
+    w.add_item("banana", 5)
+    items = w.get_all_items()
+    assert "apple" in items
+    assert "banana" in items
