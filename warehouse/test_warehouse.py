@@ -56,3 +56,11 @@ def test_ship_more_than_available():
         assert False
     except ValueError:
         assert True
+
+def test_history():
+    w = Warehouse()
+    w.add_item("apple", 10)
+    w.receive_items("apple", 5)
+    w.ship_items("apple", 3)
+    history = w.get_history()
+    assert len(history) == 3
