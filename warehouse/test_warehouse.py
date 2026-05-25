@@ -12,3 +12,12 @@ def test_get_nonexistent_item():
         assert False
     except KeyError:
         assert True 
+
+def test_add_multiple_items():
+    w = Warehouse()
+    w.add_item("apple", 10)
+    w.add_item("banana", 5)
+    w.add_item("orange", 20)
+    assert w.get_quantity("apple") == 10
+    assert w.get_quantity("banana") == 5
+    assert w.get_quantity("orange") == 20
