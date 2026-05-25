@@ -7,3 +7,8 @@ class Warehouse:
 
     def get_quantity(self, name):
         return self.items[name]
+
+    def update_quantity(self, name, quantity):
+        if name not in self.items:
+            raise KeyError(f"Item {name} not found")
+        self.items[name] = quantity
