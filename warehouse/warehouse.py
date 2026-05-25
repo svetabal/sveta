@@ -13,7 +13,12 @@ class Warehouse:
             raise KeyError(f"Item {name} not found")
         self.items[name] = quantity
 
-def receive_items(self, name, quantity):
+    def receive_items(self, name, quantity):
         if name not in self.items:
             raise KeyError(f"Item {name} not found")
         self.items[name] += quantity
+
+    def ship_items(self, name, quantity):
+        if name not in self.items:
+            raise KeyError(f"Item {name} not found")
+        self.items[name] -= quantity
