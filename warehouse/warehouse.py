@@ -17,8 +17,10 @@ class Warehouse:
         if name not in self.items:
             raise KeyError(f"Item {name} not found")
         self.items[name] += quantity
-
+        
     def ship_items(self, name, quantity):
         if name not in self.items:
             raise KeyError(f"Item {name} not found")
+        if quantity > self.items[name]:
+            raise ValueError("Not enough items in stock")
         self.items[name] -= quantity
