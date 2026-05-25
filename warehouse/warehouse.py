@@ -39,3 +39,6 @@ class Warehouse:
         history = w.get_history()
         assert "ADD apple: 10" in history
         assert "RECEIVE apple: +5" in history
+
+    def get_all_items(self):
+        return list(self.items.keys())
