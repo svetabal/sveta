@@ -1,4 +1,4 @@
-from warehouse.warehouse import Warehouse
+from warehouse import Warehouse
 
 def test_add_item():
     w = Warehouse()
