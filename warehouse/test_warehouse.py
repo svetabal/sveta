@@ -27,3 +27,11 @@ def test_update_quantity():
     w.add_item("apple", 10)
     w.update_quantity("apple", 25)
     assert w.get_quantity("apple") == 25
+
+def test_update_nonexistent_item():
+    w = Warehouse()
+    try:
+        w.update_quantity("banana", 10)
+        assert False
+    except KeyError:
+        assert True
