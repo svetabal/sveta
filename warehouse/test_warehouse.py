@@ -11,4 +11,4 @@ def test_get_nonexistent_item():
         w.get_quantity("banana")
         assert False
     except KeyError:
-        assert True
+        assert True 
