@@ -21,3 +21,9 @@ def test_add_multiple_items():
     assert w.get_quantity("apple") == 10
     assert w.get_quantity("banana") == 5
     assert w.get_quantity("orange") == 20
+
+def test_update_quantity():
+    w = Warehouse()
+    w.add_item("apple", 10)
+    w.update_quantity("apple", 25)
+    assert w.get_quantity("apple") == 25
