@@ -47,3 +47,12 @@ def test_ship_items():
     w.add_item("apple", 10)
     w.ship_items("apple", 3)
     assert w.get_quantity("apple") == 7
+
+def test_ship_more_than_available():
+    w = Warehouse()
+    w.add_item("apple", 10)
+    try:
+        w.ship_items("apple", 15)
+        assert False
+    except ValueError:
+        assert True
