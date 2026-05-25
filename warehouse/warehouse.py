@@ -31,3 +31,11 @@ class Warehouse:
 
     def get_history(self):
         return self.history
+
+    def test_history_content():
+        w = Warehouse()
+        w.add_item("apple", 10)
+        w.receive_items("apple", 5)
+        history = w.get_history()
+        assert "ADD apple: 10" in history
+        assert "RECEIVE apple: +5" in history
