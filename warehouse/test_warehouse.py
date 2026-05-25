@@ -41,3 +41,9 @@ def test_receive_items():
     w.add_item("apple", 10)
     w.receive_items("apple", 5)
     assert w.get_quantity("apple") == 15
+
+def test_ship_items():
+    w = Warehouse()
+    w.add_item("apple", 10)
+    w.ship_items("apple", 3)
+    assert w.get_quantity("apple") == 7
