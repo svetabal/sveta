@@ -35,3 +35,9 @@ def test_update_nonexistent_item():
         assert False
     except KeyError:
         assert True
+
+def test_receive_items():
+    w = Warehouse()
+    w.add_item("apple", 10)
+    w.receive_items("apple", 5)
+    assert w.get_quantity("apple") == 15
