@@ -11,7 +11,7 @@ def test_get_nonexistent_item():
         w.get_quantity("banana")
         assert False
     except KeyError:
-        assert True 
+        assert True
 
 def test_add_multiple_items():
     w = Warehouse()
@@ -65,6 +65,14 @@ def test_history():
     history = w.get_history()
     assert len(history) == 3
 
+def test_history_content():
+    w = Warehouse()
+    w.add_item("apple", 10)
+    w.receive_items("apple", 5)
+    history = w.get_history()
+    assert "ADD apple: 10" in history
+    assert "RECEIVE apple: +5" in history
+
 def test_get_all_items():
     w = Warehouse()
     w.add_item("apple", 10)
@@ -96,16 +104,6 @@ def test_get_report():
     assert "10" in report
     assert "5" in report
 
-def test_get_report():
-    w = Warehouse()
-    w.add_item("apple", 10)
-    w.add_item("banana", 5)
-    report = w.get_report()
-    assert "apple" in report
-    assert "banana" in report
-    assert "10" in report
-    assert "5" in report
-    
 def test_clear_warehouse():
     w = Warehouse()
     w.add_item("apple", 10)
