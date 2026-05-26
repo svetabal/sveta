@@ -58,3 +58,7 @@ class Warehouse:
             report += f"{name}: {quantity}\n"
         report += f"Total items: {self.total_items()}"
         return report
+
+    def clear(self):
+        self.items = {}
+        self.history.append("CLEAR: warehouse cleared")
