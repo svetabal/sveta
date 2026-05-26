@@ -42,3 +42,6 @@ class Warehouse:
 
     def get_all_items(self):
         return list(self.items.keys())
+
+    def total_items(self):
+        return sum(self.items.values())
