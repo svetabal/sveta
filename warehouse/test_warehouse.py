@@ -72,3 +72,9 @@ def test_get_all_items():
     items = w.get_all_items()
     assert "apple" in items
     assert "banana" in items
+
+def test_total_items():
+    w = Warehouse()
+    w.add_item("apple", 10)
+    w.add_item("banana", 5)
+    assert w.total_items() == 15
