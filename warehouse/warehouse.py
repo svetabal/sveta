@@ -48,3 +48,6 @@ class Warehouse:
 
    def find_item(self, query):
         return [name for name in self.items if query in name]
+
+    def find_item(self, query):
+        return [name for name in self.items if query in name]
