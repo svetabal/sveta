@@ -78,3 +78,10 @@ def test_total_items():
     w.add_item("apple", 10)
     w.add_item("banana", 5)
     assert w.total_items() == 15
+
+def test_find_item():
+    w = Warehouse()
+    w.add_item("apple", 10)
+    w.add_item("banana", 5)
+    assert w.find_item("app") == ["apple"]
+    assert w.find_item("an") == ["banana"]
