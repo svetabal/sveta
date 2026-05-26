@@ -45,3 +45,10 @@ class Warehouse:
 
     def total_items(self):
         return sum(self.items.values())
+
+    def test_find_item():
+        w = Warehouse()
+        w.add_item("apple", 10)
+        w.add_item("banana", 5)
+        assert w.find_item("app") == ["apple"]
+        assert w.find_item("an") == ["banana"]
