@@ -51,3 +51,10 @@ class Warehouse:
 
     def find_item(self, query):
         return [name for name in self.items if query in name]
+
+    def get_report(self):
+        report = "=== Warehouse Report ===\n"
+        for name, quantity in self.items.items():
+            report += f"{name}: {quantity}\n"
+        report += f"Total items: {self.total_items()}"
+        return report
